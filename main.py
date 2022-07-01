@@ -24,6 +24,8 @@ def bugtool():
              bugs += [str(resp.json()['scopes'][0]['results'][i]['url'])[-7:]]
         i += 1
     print(bugs)
+    test = []
+    print(len(bugs),len(test))
 
     """获取bug信息 如状态 优先级等"""
     url1 = 'https://rct-ai.atlassian.net/rest/graphql/1/'
@@ -31,7 +33,7 @@ def bugtool():
     P0UnFix = []
     P1UnFix = []
     AllUnFix = []
-    Done = []
+    Done = len(bugs)
     reqName = ''
     j = 0
     while j < len(bugs):
@@ -42,16 +44,14 @@ def bugtool():
         status = resp1.json()['data']['issue']['fields'][28]['content']['name']
         name = [str(resp1.json()['data']['issue']['fields'][11]['content'])]
         reqName = resp1.json()['data']['issue']['fields'][7]['content']['name']
-        if priority == '1' and status == '打开':
+        if priority == '1' and status == '打开' or priority == '1' and status == 'In Dev':
             upUnFixNum += name
-        if priority == '2' and status == '打开':
+        if priority == '2' and status == '打开' or priority == '2' and status == 'In Dev':
             P0UnFix += name
-        if priority == '3' and status == '打开':
+        if priority == '3' and status == '打开'or priority == '3' and status == 'In Dev':
             P1UnFix += name
-        if status == '打开':
+        if status == '打开'or status == 'In Dev':
             AllUnFix += name
-        if status == 'Discarded' or '已完成':
-            Done += name
         j += 1
     print(reqName)
     print(upUnFixNum)
@@ -65,7 +65,6 @@ def bugtool():
     P0UnFixNum = len(P0UnFix)
     P1UnFixNum = len(P1UnFix)
     AllUnFixNum = len(AllUnFix)
-    DoneNum = len(Done)
 
     p = {
     "msg_type": "interactive",
@@ -84,7 +83,7 @@ def bugtool():
             {
                 "tag": "div",
                 "text": {
-                    "content": f"P0以上未修复BUG数 **{upUnFixNum}** 个",
+                    "content": f"P0以上BUG数 **{upUnFixNum}** 个",
                     "tag": "lark_md"
                 }
             },
@@ -112,7 +111,7 @@ def bugtool():
             {
                 "tag": "div",
                 "text": {
-                    "content": f"BUG总数 **{DoneNum}** 个",
+                    "content": f"BUG总数 **{Done}** 个",
                     "tag": "lark_md"
                 }
             }, {
