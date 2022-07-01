@@ -61,26 +61,11 @@ def bugtool():
     print(Done)
 
     """修改格式推送至飞书"""
-    if len(upUnFixNum) == 0:
-        upUnFixNum = len(upUnFixNum)
-    else:
-        upUnFixNum = len(upUnFixNum) + 1
-    if len(P0UnFix) == 0:
-        P0UnFixNum = len(P0UnFix)
-    else:
-        P0UnFixNum = len(P0UnFix) + 1
-    if len(P1UnFix) == 0:
-        P1UnFixNum = len(P1UnFix)
-    else:
-        P1UnFixNum = len(P1UnFix) + 1
-    if len(AllUnFix) == 0:
-        AllUnFixNum = len(AllUnFix)
-    else:
-        AllUnFixNum = len(AllUnFix) + 1
-    if len(Done) == 0:
-        DoneNum = len(Done)
-    else:
-        DoneNum = len(Done) + 1
+    upUnFixNum = len(upUnFixNum)
+    P0UnFixNum = len(P0UnFix)
+    P1UnFixNum = len(P1UnFix)
+    AllUnFixNum = len(AllUnFix)
+    DoneNum = len(Done)
 
     p = {
     "msg_type": "interactive",
