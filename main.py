@@ -99,7 +99,7 @@ def bugtool():
             {
                 "tag": "div",
                 "text": {
-                    "content": f"P0以上BUG数 **{upUnFixNum}** 个",
+                    "content": f"P0以上未修复BUG数 **{upUnFixNum}** 个",
                     "tag": "lark_md"
                 }
             },
@@ -127,7 +127,7 @@ def bugtool():
             {
                 "tag": "div",
                 "text": {
-                    "content": f"全部BUG数 **{DoneNum}** 个",
+                    "content": f"BUG总数 **{DoneNum}** 个",
                     "tag": "lark_md"
                 }
             }, {
