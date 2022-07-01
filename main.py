@@ -3,7 +3,7 @@ import requests
 
 def bugtool():
     """获取所有bug的isuue key"""
-    url = 'https://rct - ai.atlassian.net/gateway/api/xpsearch-aggregator/quicksearch/v1'
+    url = 'https://rct-ai.atlassian.net/gateway/api/xpsearch-aggregator/quicksearch/v1'
     header = {
         "Accept":"*/*",
         "Connection":"keep-alive",
