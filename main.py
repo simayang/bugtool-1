@@ -83,7 +83,7 @@ def bugtool():
             {
                 "tag": "div",
                 "text": {
-                    "content": f"P0以上BUG数 **{upUnFixNum}** 个",
+                    "content": f"P0以上未修复BUG数 **{upUnFixNum}** 个",
                     "tag": "lark_md"
                 }
             },
@@ -118,7 +118,7 @@ def bugtool():
                     "actions": [{
                             "tag": "button",
                             "text": {
-                                    "content": "点击打开JIRA查看更多BUG详情 🪲",
+                                    "content": "点击查看更多BUG详情🔍",
                                     "tag": "lark_md"
                             },
                             "url": "https://rct-ai.atlassian.net/jira/software/c/projects/NLP/boards/15",
