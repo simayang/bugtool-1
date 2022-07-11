@@ -3,18 +3,18 @@ import requests
 
 def bugtool():
     """获取所有bug的isuue key"""
-    url = 'https://rct-ai.atlassian.net/gateway/api/xpsearch-aggregator/quicksearch/v1'
     header = {
         "Accept":"*/*",
         "Connection":"keep-alive",
         "content-type":"application/json"
     }
-    cookie = {"ajs_anonymous_id":"%22772a5426-d38d-40f4-91c7-ceedc0d30a3f%22","atlassian.xsrf.token":"725e5e66-f148-4f2e-a701-9a168378c0b7_915a752f7e92125592119d503a6421be0f538441_lin","jira.navigation.expandableMenuStates.classic-issues-setttings":"{%22submenuActive%22:false%2C%22expanded%22:true}","jira.navigation.expandableMenuStates.classic-apps-setttings":"{%22submenuActive%22:false%2C%22expanded%22:true}","JSESSIONID":"1FEE672FBE81D9B263B80015D9998C0","cloud.session.token":"eyJraWQiOiJzZXNzaW9uLXNlcnZpY2VcL3Byb2QtMTU5Mjg1ODM5NCIsImFsZyI6IlJTMjU2In0.eyJhc3NvY2lhdGlvbnMiOltdLCJzdWIiOiI2Mjk3MDdlYjU2M2QzODAwNjhiMWQ3NzMiLCJlbWFpbERvbWFpbiI6InJjdC5haSIsImltcGVyc29uYXRpb24iOltdLCJjcmVhdGVkIjoxNjU0MDY1NDU4LCJyZWZyZXNoVGltZW91dCI6MTY1NjM4ODI3NywidmVyaWZpZWQiOnRydWUsImlzcyI6InNlc3Npb24tc2VydmljZSIsInNlc3Npb25JZCI6IjhlZTU3N2VjLWM1N2ItNGU0Yy1hZDc4LTYwZjM4YTYxY2MzZSIsInN0ZXBVcHMiOltdLCJhdWQiOiJhdGxhc3NpYW4iLCJuYmYiOjE2NTYzODc2NzcsImV4cCI6MTY1ODk3OTY3NywiaWF0IjoxNjU2Mzg3Njc3LCJlbWFpbCI6IndhbmdsaWppZUByY3QuYWkiLCJqdGkiOiI4ZWU1NzdlYy1jNTdiLTRlNGMtYWQ3OC02MGYzOGE2MWNjM2UifQ.Vkm7Ea_muGHtWfFfTh-Oxq6oxTQeR6PANjb4VbWUW2a3-2mGmUl3NOlmAO6l7i_dQKM5slYvY4n1c8zFE8MPPkR5XqXjMGgyGMmKd8HVIa90hPMpXaUeUdlI-wUqc5rLYYA-UXLgP9ORFHNzLUBW6B5lMb4df0Y3VuGcgWkkiFv-QilDFI6zuOMV6TGVZobfbILJdyqJoWQyLvH2B5sji4-ddz3g71Y5hUKU_FN-mULEo5Wq5yrTdS70VaFOvzxQ1f8vy_SWGVhgtKSj3-51aA4AG8BvBpgU1IyGm8u8_ioToBIKjGPdtnPP9VQhn4EmNEnpDqbVHDHOHK47BcU2rw"}
-    payload = {"query":"","cloudId":"54cc4c96-c35c-40fa-8ed3-81f8781efc95","limit":50,"scopes":["jira.issue"],"filters":[],"searchSession":{"sessionId":"94265223-ef1d-4591-a271-2d2068b3792f","referrerId":None},"experience":"jira.nav-v3","cloudIds":[]}
+    cookie = {"ajs_anonymous_id":"%22772a5426-d38d-40f4-91c7-ceedc0d30a3f%22","atlassian.xsrf.token":"725e5e66-f148-4f2e-a701-9a168378c0b7_59a5792dc995eab7552428c0b311fbd89db85622_lin","jira.navigation.expandableMenuStates.classic-issues-setttings":"{%22submenuActive%22:false%2C%22expanded%22:true}","jira.navigation.expandableMenuStates.classic-apps-setttings":"{%22submenuActive%22:false%2C%22expanded%22:true}","JSESSIONID":"1FEE672FBE81D9B263B80015D9998C0","cloud.session.token":"eyJraWQiOiJzZXNzaW9uLXNlcnZpY2VcL3Byb2QtMTU5Mjg1ODM5NCIsImFsZyI6IlJTMjU2In0.eyJhc3NvY2lhdGlvbnMiOltdLCJzdWIiOiI2Mjk3MDdlYjU2M2QzODAwNjhiMWQ3NzMiLCJlbWFpbERvbWFpbiI6InJjdC5haSIsImltcGVyc29uYXRpb24iOltdLCJjcmVhdGVkIjoxNjU0MDY1NDU4LCJyZWZyZXNoVGltZW91dCI6MTY1NjM4ODI3NywidmVyaWZpZWQiOnRydWUsImlzcyI6InNlc3Npb24tc2VydmljZSIsInNlc3Npb25JZCI6IjhlZTU3N2VjLWM1N2ItNGU0Yy1hZDc4LTYwZjM4YTYxY2MzZSIsInN0ZXBVcHMiOltdLCJhdWQiOiJhdGxhc3NpYW4iLCJuYmYiOjE2NTYzODc2NzcsImV4cCI6MTY1ODk3OTY3NywiaWF0IjoxNjU2Mzg3Njc3LCJlbWFpbCI6IndhbmdsaWppZUByY3QuYWkiLCJqdGkiOiI4ZWU1NzdlYy1jNTdiLTRlNGMtYWQ3OC02MGYzOGE2MWNjM2UifQ.Vkm7Ea_muGHtWfFfTh-Oxq6oxTQeR6PANjb4VbWUW2a3-2mGmUl3NOlmAO6l7i_dQKM5slYvY4n1c8zFE8MPPkR5XqXjMGgyGMmKd8HVIa90hPMpXaUeUdlI-wUqc5rLYYA-UXLgP9ORFHNzLUBW6B5lMb4df0Y3VuGcgWkkiFv-QilDFI6zuOMV6TGVZobfbILJdyqJoWQyLvH2B5sji4-ddz3g71Y5hUKU_FN-mULEo5Wq5yrTdS70VaFOvzxQ1f8vy_SWGVhgtKSj3-51aA4AG8BvBpgU1IyGm8u8_ioToBIKjGPdtnPP9VQhn4EmNEnpDqbVHDHOHK47BcU2rw"}
+    url = 'https://rct-ai.atlassian.net/gateway/api/xpsearch-aggregator/quicksearch/v1'
+    payload = {"query":"","cloudId":"54cc4c96-c35c-40fa-8ed3-81f8781efc95","limit": 50,"scopes":["jira.issue"],"filters":[],"searchSession":{"sessionId":"d7dcdfe3-da29-4beb-9deb-1eeb2e373d53","referrerId":None},"experience":"jira.nav-v3","cloudIds":[]}
     resp = requests.post(url,data = json.dumps(payload),headers=header,cookies=cookie)
     result = resp.json()['scopes'][0]['results']
-    #print(resp.json()['scopes'][0]['results'])
-    #print(type(result),len(result))
+    print(resp.json()['scopes'][0]['results'])
+    print(type(result),len(result))
     #print(resp.json()['scopes'][0]['results'][0]['attributes']['issueTypeId'],type(resp.json()['scopes'][0]['results'][0]['attributes']['issueTypeId']))
     #print(type(resp.json()['scopes'][0]['results'][0]['url']))
     i = 0
@@ -24,8 +24,6 @@ def bugtool():
              bugs += [str(resp.json()['scopes'][0]['results'][i]['url'])[-7:]]
         i += 1
     print(bugs)
-    test = []
-    print(len(bugs),len(test))
 
     """获取bug信息 如状态 优先级等"""
     url1 = 'https://rct-ai.atlassian.net/rest/graphql/1/'
@@ -33,7 +31,6 @@ def bugtool():
     P0UnFix = []
     P1UnFix = []
     AllUnFix = []
-    Done = len(bugs)
     reqName = ''
     j = 0
     while j < len(bugs):
@@ -58,14 +55,22 @@ def bugtool():
     print(P0UnFix)
     print(P1UnFix)
     print(AllUnFix)
-    print(Done)
 
-    """修改格式推送至飞书"""
+    url2 = ' https://rct-ai.atlassian.net/rest/greenhopper/1.0/xboard/work/allData.json?rapidViewId=15&selectedProjectKey=DX&forceConsistency=false&_=1657274636276'
+    resp2 = requests.get(url=url2,headers=header,cookies=cookie)
+    print(resp2.json()['columnsData']['columns'],len(resp2.json()['columnsData']['columns']))
+    t = 0
+    Total = 0
+    while t < len(resp2.json()['columnsData']['columns']):
+        Total += resp2.json()['columnsData']['columns'][t]['statisticsFieldValue']
+        t += 1
+    print(Total)
     upUnFixNum = len(upUnFixNum)
     P0UnFixNum = len(P0UnFix)
     P1UnFixNum = len(P1UnFix)
     AllUnFixNum = len(AllUnFix)
 
+    """修改格式推送至飞书"""
     p = {
     "msg_type": "interactive",
     "card": {
@@ -111,7 +116,7 @@ def bugtool():
             {
                 "tag": "div",
                 "text": {
-                    "content": f"BUG总数 **{Done}** 个",
+                    "content": f"BUG总数 **{int(Total)}** 个",
                     "tag": "lark_md"
                 }
             }, {
