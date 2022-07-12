@@ -57,7 +57,7 @@ def bugtool():
         "elements": [{
                 "tag": "div",
                 "text": {
-                        "content": "📒 Project Name:**Delysium Tech**",
+                        "content": "📒 **Delysium Tech**",
                         "tag": "lark_md"
                 }
             },
