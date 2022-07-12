@@ -99,7 +99,7 @@ def bugtool():
                     "actions": [{
                             "tag": "button",
                             "text": {
-                                    "content": "🔍 CLICK HERE FOR MORE DETAILS",
+                                    "content": "🔍 CLICK HERE FOR DETAILS",
                                     "tag": "lark_md"
                             },
                             "url": "https://rct-ai.atlassian.net/jira/software/c/projects/DX/boards/43",
