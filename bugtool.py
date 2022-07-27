@@ -57,7 +57,7 @@ def bugtool():
         "elements": [{
                 "tag": "div",
                 "text": {
-                        "content": "📒 **Marketplace 3.0**",
+                        "content": "📒 **Mobile Purchase + Account Settings**",
                         "tag": "lark_md"
                 }
             },
